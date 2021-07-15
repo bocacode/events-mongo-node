@@ -9,3 +9,10 @@ exports.getAllEvents = (req, res) => {
     })
     .catch(err => console.log(err))
 }
+
+// export a function that gets event by name
+exports.getEventByName = (req, res) => {
+  Event.find()
+  .then()
+  .catch(err => res.status(500).send('Could not find event'))
+}
