@@ -3,13 +3,8 @@ const Customer = require('../models/customerModel')
 
 exports.updateCustomer = (req, res) => {
     Customer
-    .find(req.body)
-    .findOneAndUpdate(req.params.fName, { 
-        $set: {
-            fName: "Timmy"
-        }
-    }, {new: true})
-    .then(res.status(200).send('created', Customer))
+    .findOneAndUpdate(req.parmas.id, {$set: req.body}, {new: true})
+    .then(res.status(200).send('updated', Customer))
     .catch(err => console.log(err))
 
 }
