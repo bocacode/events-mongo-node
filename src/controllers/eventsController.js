@@ -10,10 +10,3 @@ exports.getAllEvents = (req, res) => {
     })
     .catch(err => console.log(err))
 }
-
-exports.deleteSingleSponsor = (req, res) => {
-  deleteSponsor
-  .delete()
-  .then(singleSponsor =)
-  .catch(err => console.log(err))
-}
