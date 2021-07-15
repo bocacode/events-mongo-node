@@ -9,3 +9,4 @@ exports.getAllEvents = (req, res) => {
     })
     .catch(err => console.log(err))
 }
+
