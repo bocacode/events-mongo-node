@@ -1,7 +1,7 @@
-const express = require("express") // import express
-const cors = require("cors") // import cors
-const mongoose = require("mongoose") // import mongoose
-require("dotenv/config") // importing dotenv libriary to use variable
+const express = require('express') // import express
+const cors = require('cors') // import cors
+const mongoose = require('mongoose') // import mongoose
+require('dotenv/config') // importing dotenv libriary to use variable
 
 const app = express() // creating app as Express
 app.use(express.json()) // use express and parse everythig into json
@@ -13,13 +13,16 @@ mongoose
   }) // connect to mongoose
   .then(() => {
     app.listen(5000)
-    console.log("App is listening on 5000, and connected to mongo")
+    console.log('App is listening on 5000, and connected to mongo')
   })
   .catch((err) => console.log(err))
 
 // import the router
-const eventsRoutes = require("./src/routes/eventsRoutes")
+const eventsRoutes = require('./src/routes/eventsRoutes')
 app.use(eventsRoutes)
 
-const sponsorsRoutes = require("./src/routes/sponsorsRoutes")
+const sponsorsRoutes = require('./src/routes/sponsorsRoutes')
 app.use(sponsorsRoutes)
+
+const ordersRoutes = require('./src/routes/ordersRoutes')
+app.use(ordersRoutes)
