@@ -3,6 +3,9 @@ const router = express.Router() // get router function from express
 
 const eventsController = require('../controllers/eventsController')
 
+router.post('/addEvent', eventsController.createEvent)
+
+// export all routes within the router
 router.get('/events/bydate/:search', eventsController.getEventByDate)
 router.get('/events/byname/:search', eventsController.getEventByName)
 router.get('/events', eventsController.getAllEvents)

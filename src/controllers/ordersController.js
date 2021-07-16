@@ -15,3 +15,10 @@ exports.getOrdersByDate = (req, res) => {
     .then(oneOrder => res.status(200).send(oneOrder))
     .catch(err => res.send(err))
 }
+
+exports.getAllOrders = (req, res) => {
+  Order.find()
+  .then(allOrders => res.status(200).send(allOrders) )
+  .catch(err => res.send(err))
+
+}
