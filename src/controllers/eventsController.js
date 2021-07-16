@@ -15,9 +15,9 @@ exports.getAllEvents = (req, res) => {
 }
 
 // export a function that gets event by name
-exports.getEventByName = (req, res) => {
-  const { eventName } = req.query
-  Event.findOne({ title: eventName })
+exports.getEventByTitle = (req, res) => {
+  const { eventTitle } = req.query
+  Event.findOne({ title: eventTitle })
     .then((event) => {
       console.log(event)
       res.send(event)
@@ -25,6 +25,7 @@ exports.getEventByName = (req, res) => {
     .catch((err) => res.status(500).send('Could not find event'))
 }
 
+// export a function to get event by date
 exports.createEvent = (req, res) => {
   new Event(req.body)
     .save()
@@ -42,4 +43,14 @@ exports.getEventByDate = (req, res) => {
       res.send(event)
     })
     .catch((err) => res.status(500).send('Could not find the date'))
+}
+
+// create a function to delete an event
+exports.deleteEvent = (req, res) => {
+  const { eventTitle } = req.params
+  Event.findOneAndDelete({ title: eventTitle })
+  .then(event => {
+    res.send('Event was deleted.', event)
+  })
+  .catch(err => res.status(500).send('Could not delete event'))
 }
