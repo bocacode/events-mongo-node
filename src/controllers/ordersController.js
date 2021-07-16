@@ -24,7 +24,7 @@ exports.getAllOrders = (req, res) => {
 }
 
 exports.deleteOrder = (req,res) => {
-  Order.findOneAndDelete({ orderNumber = req.params.orderNum })
+  Order.findOneAndDelete({ orderNumber: req.params.orderNum })
   .then( () => res.status(410).send('Order deleted.'))
   .catch(err => res.status(500).send('Could not delete order'))
 }

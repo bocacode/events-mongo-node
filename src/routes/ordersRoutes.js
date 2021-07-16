@@ -10,7 +10,7 @@ router.get('/orders', ordersController.getAllOrders )
 // todo get one order by idNum
 router.post('/addOrder', ordersController.createOrder)
 
-router.delete('deleteOrder/:orderNum', ordersController.deleteOrder)
+router.delete('/deleteOrder/:orderNum', ordersController.deleteOrder)
 
 module.exports = router
 
