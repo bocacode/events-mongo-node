@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+
 const CustomerSchema = mongoose.Schema({
   fName: String,
   lName: String,
