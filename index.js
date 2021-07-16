@@ -18,9 +18,9 @@ mongoose
 const eventsRoutes = require('./src/routes/eventsRoutes')
 app.use(eventsRoutes)
 
-
-const updateCustomer = require('./src/routes/customerRoutes')
+const updateCustomer = require('./src/routes/customersRoutes')
 app.use(updateCustomer)
+
 const sponsorsRoutes = require('./src/routes/sponsorsRoutes')
 app.use(sponsorsRoutes)
 
