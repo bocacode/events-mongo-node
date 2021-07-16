@@ -7,6 +7,11 @@ exports.getAllEvents = (req, res) => {
       res.status(200).send(allEvents)
     })
     .catch((err) => console.log(err))
+  Event.find()
+    .then((allEvents) => {
+      res.status(200).send(allEvents)
+    })
+    .catch((err) => console.log(err))
 }
 
 // export a function that gets event by name
@@ -27,4 +32,14 @@ exports.createEvent = (req, res) => {
       res.status(200).send('Event has been created')
     })
     .catch((err) => console.error(err))
+}
+
+exports.getEventByDate = (req, res) => {
+  const { eventDate } = req.query
+  Event.findOne({ date: eventDate })
+    .then((event) => {
+      console.log(event)
+      res.send(event)
+    })
+    .catch((err) => res.status(500).send('Could not find the date'))
 }
