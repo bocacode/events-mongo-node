@@ -24,6 +24,8 @@ app.use(updateCustomer)
 const sponsorsRoutes = require('./src/routes/sponsorsRoutes')
 app.use(sponsorsRoutes)
 
+const deleteSponsorRoutes = require('./src/routes/deleteSponsorRoutes')
+app.use(deleteSponsorRoutes)
 const customersRoutes = require("./src/routes/customersRoutes")
 app.use(customersRoutes)
 
