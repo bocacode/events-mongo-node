@@ -32,3 +32,11 @@ exports.updateCustomer = (req, res) => {
     })
     .catch(err => console.log(err))
 }
+
+exports.deleteCustomer = (req, res) => {
+  Customer.findOneAndDelete({ fName: req.params.fName })
+    .then(() => {
+      res.status(200).send('Customer Deleted')
+    })
+    .catch(err => console.log(err))
+  }      
