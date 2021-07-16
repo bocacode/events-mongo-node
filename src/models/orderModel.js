@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const OrderSchema = mongoose.Schema({
-  idNum: { type: Number, required: true },
+  orderNumber: { 
+    type: Number,
+    required: true,
+    unique: true,
+ },
   date: { type: Date, required: true },
   item: String,
   total: String,
