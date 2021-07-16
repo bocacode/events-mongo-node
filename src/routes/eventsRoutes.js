@@ -7,3 +7,4 @@ router.get('/', eventsController.getAllEvents)
 
 // export all routes within the router
 module.exports = router
+
