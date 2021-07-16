@@ -8,3 +8,11 @@ exports.createSponsor = (req, res) => {
     })
     .catch((err) => console.error(err))
 }
+
+exports.deleteSingleSponsor = (req, res) => {
+  Sponsor.findOneAndDelete({ company: 'FPL' })
+    .then(deleteSponsor => {
+      res.status(200).send(deleteSponsor)
+    })
+    .catch(err => console.log(err))
+}
