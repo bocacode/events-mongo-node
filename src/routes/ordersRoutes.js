@@ -3,6 +3,7 @@ const router = express.Router()
 
 const ordersController = require('../controllers/ordersController')
 router.get('/orders/:eventDate', ordersController.getOrdersByDate)
+router.get('/orders/:number', ordersController.getOrdersByIdNumber)
 router.get('/orders', ordersController.getAllOrders )
 
 

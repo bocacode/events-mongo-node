@@ -22,3 +22,10 @@ exports.getAllOrders = (req, res) => {
   .catch(err => res.send(err))
 
 }
+
+exports.getOrdersByIdNumber =(req, res) => {
+  const {number} = req.params
+  Order.findOne({orderNumber: number})
+  .then(oneOrder => res.status(200).send(oneOrder))
+  .catch(err => res.send(err))
+}
