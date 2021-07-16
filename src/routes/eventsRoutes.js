@@ -6,5 +6,7 @@ const eventsController = require('../controllers/eventsController')
 router.get('/', eventsController.getAllEvents)
 router.get('/events/:search', eventsController.getEventByName)
 
+router.post('/addEvent', eventsController.createEvent)
+
 // export all routes within the router
 module.exports = router

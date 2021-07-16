@@ -19,3 +19,12 @@ exports.getEventByName = (req, res) => {
     })
     .catch((err) => res.status(500).send('Could not find event'))
 }
+
+exports.createEvent = (req, res) => {
+  new Event(req.body)
+    .save()
+    .then(() => {
+      res.status(200).send('Event has been created')
+    })
+    .catch((err) => console.error(err))
+}
