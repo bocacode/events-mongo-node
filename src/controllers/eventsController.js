@@ -1,13 +1,12 @@
-const Event = require('../models/eventModel') // import the model 
+const Event = require('../models/eventModel') // import the model
 
 // export a function called get all Events
 exports.getAllEvents = (req, res) => {
-  Event
-    .find()
-    .then(allEvents => {
+  Event.find()
+    .then((allEvents) => {
       res.status(200).send(allEvents)
     })
-    .catch(err => console.log(err))
+    .catch((err) => console.log(err))
   Event.find()
     .then((allEvents) => {
       res.status(200).send(allEvents)
@@ -26,12 +25,21 @@ exports.getEventByName = (req, res) => {
     .catch((err) => res.status(500).send('Could not find event'))
 }
 
+exports.createEvent = (req, res) => {
+  new Event(req.body)
+    .save()
+    .then(() => {
+      res.status(200).send('Event has been created')
+    })
+    .catch((err) => console.error(err))
+}
+
 exports.getEventByDate = (req, res) => {
   const { eventDate } = req.query
   Event.findOne({ date: eventDate })
-    .then(event => {
+    .then((event) => {
       console.log(event)
       res.send(event)
     })
-     .catch(err => res.status(500).send('Could not find the date'))
+    .catch((err) => res.status(500).send('Could not find the date'))
 }
