@@ -5,20 +5,21 @@ app.use(express.json())
 
 exports.updateCustomer = (req, res) => {
     const hardCodedCust = {
-        fname: 'Matt'
+        fName: 'Matt'
     }
 
     const newCustInfo = {
-        girlfriend: true,
-        brownEyes: false,
-        fname: 'Mathew'
+        fName: 'Timmy',
+        lName: 'Paul',
+        email: 'timmypaul@gmail.com',
+        phone: '999-999-9998'
 
     }
 
     Customer
         .findOneAndUpdate(hardCodedCust, newCustInfo, { new: true })
         .then(() => {
-            // res.status(200).send('updated', Customer)
+            res.status(200).send('updated', Customer)
             console.log('Updated')
         })
         .catch(err => console.log(err))

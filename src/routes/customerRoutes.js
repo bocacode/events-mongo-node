@@ -1,8 +1,7 @@
-const express = require ('express')
+const express = require('express')
 const router = express.Router()
 
-const customerController = require('../customers/customerController')
-
+const customerController = require('../controllers/customerController')
 router.get('/update', customerController.updateCustomer)
 
 module.exports = router
