@@ -1,13 +1,12 @@
-const Event = require('../models/eventModel') // import the model 
+const Event = require('../models/eventModel') // import the model
 
 // export a function called get all Events
 exports.getAllEvents = (req, res) => {
-  Event
-    .find()
-    .then(allEvents => {
+  Event.find()
+    .then((allEvents) => {
       res.status(200).send(allEvents)
     })
-    .catch(err => console.log(err))
+    .catch((err) => console.log(err))
   Event.find()
     .then((allEvents) => {
       res.status(200).send(allEvents)
@@ -16,9 +15,9 @@ exports.getAllEvents = (req, res) => {
 }
 
 // export a function that gets event by name
-exports.getEventByName = (req, res) => {
-  const { eventName } = req.query
-  Event.findOne({ title: eventName })
+exports.getEventByTitle = (req, res) => {
+  const { eventTitle } = req.query
+  Event.findOne({ title: eventTitle })
     .then((event) => {
       console.log(event)
       res.send(event)
@@ -26,14 +25,24 @@ exports.getEventByName = (req, res) => {
     .catch((err) => res.status(500).send('Could not find event'))
 }
 
+// export a function to get event by date
+exports.createEvent = (req, res) => {
+  new Event(req.body)
+    .save()
+    .then(() => {
+      res.status(200).send('Event has been created')
+    })
+    .catch((err) => console.error(err))
+}
+
 exports.getEventByDate = (req, res) => {
   const { eventDate } = req.query
   Event.findOne({ date: eventDate })
-    .then(event => {
+    .then((event) => {
       console.log(event)
       res.send(event)
     })
-     .catch(err => res.status(500).send('Could not find the date'))
+    .catch((err) => res.status(500).send('Could not find the date'))
 }
 
 exports.updateEvent = (req,res) => {
@@ -45,3 +54,13 @@ exports.updateEvent = (req,res) => {
     })
     .catch(err => res.status(500).send('Could not update'))
   }   
+  
+// create a function to delete an event
+exports.deleteEvent = (req, res) => {
+  const { eventTitle } = req.params
+  Event.findOneAndDelete({ title: eventTitle })
+  .then(event => {
+    res.send('Event was deleted.', event)
+  })
+  .catch(err => res.status(500).send('Could not delete event'))
+}
