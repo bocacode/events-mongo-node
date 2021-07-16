@@ -45,6 +45,16 @@ exports.getEventByDate = (req, res) => {
     .catch((err) => res.status(500).send('Could not find the date'))
 }
 
+exports.updateEvent = (req,res) => {
+  const { updateEvent } = req.params
+  Event.findOneAndUpdate({ title: updateEvent }, {$set: req.body})
+  .then(event => {
+    console.log(event)
+    res.status(200).send('event updated') 
+    })
+    .catch(err => res.status(500).send('Could not update'))
+  }   
+  
 // create a function to delete an event
 exports.deleteEvent = (req, res) => {
   const { eventTitle } = req.params
