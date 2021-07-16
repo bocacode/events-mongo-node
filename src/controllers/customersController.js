@@ -9,10 +9,8 @@ exports.getAllCustomers = (req, res) => {
 }
 
 exports.getCustomerByName = (req, res) => {
-  const { customerName } = req.query
-  Event.findOne({ title: customerName })
+  Customer.findOne({ fName: req.params.fName })
     .then(customer => {
-      console.log(customer)
       res.send(customer)
     })
     .catch(err => res.status(500).send('Could not find customer'))
