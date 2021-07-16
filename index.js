@@ -24,5 +24,8 @@ app.use(eventsRoutes)
 const sponsorsRoutes = require('./src/routes/sponsorsRoutes')
 app.use(sponsorsRoutes)
 
+const customersRoutes = require("./src/routes/customersRoutes")
+app.use(customersRoutes)
+
 const ordersRoutes = require('./src/routes/ordersRoutes')
 app.use(ordersRoutes)
