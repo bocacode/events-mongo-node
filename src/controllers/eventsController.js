@@ -1,4 +1,4 @@
-const Event = require("../models/eventModel") // import the model
+const Event = require('../models/eventModel') // import the model
 
 // export a function called get all Events
 exports.getAllEvents = (req, res) => {
@@ -17,5 +17,5 @@ exports.getEventByName = (req, res) => {
       console.log(event)
       res.send(event)
     })
-    .catch((err) => res.status(500).send("Could not find event"))
+    .catch((err) => res.status(500).send('Could not find event'))
 }

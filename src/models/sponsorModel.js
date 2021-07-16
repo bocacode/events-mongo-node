@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 const SponsorSchema = mongoose.Schema({
   company: String,
@@ -6,4 +6,4 @@ const SponsorSchema = mongoose.Schema({
   contact: String,
 })
 
-module.exports = mongoose.model("Sponsor", SponsorSchema)
+module.exports = mongoose.model('Sponsor', SponsorSchema)
