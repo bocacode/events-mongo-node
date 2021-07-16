@@ -1,5 +1,4 @@
 const Event = require('../models/eventModel') // import the model 
-const deleteSponsor = require('../models/eventModel')
 
 // export a function called get all Events
 exports.getAllEvents = (req, res) => {

@@ -19,4 +19,6 @@ mongoose
  const eventsRoutes = require('./src/routes/eventsRoutes')
  app.use(eventsRoutes)
 
+const deleteSponsorRoutes = require('./src/routes/deleteSponsorRoutes')
+app.use(deleteSponsorRoutes)
 
