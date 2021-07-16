@@ -1,8 +1,8 @@
 const express = require ('express')
 const router = express.Router()
 
-const customerController = require('../customers/customerController')
+const customerController = require('../controllers/customerController')
 
-router.get('/src/routes/customer/',customerController.updateCustomer)
+router.patch('/',customerController.updateCustomer)
 
 module.exports = router
