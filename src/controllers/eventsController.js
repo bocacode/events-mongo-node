@@ -19,3 +19,13 @@ exports.getEventByName = (req, res) => {
     })
     .catch((err) => res.status(500).send('Could not find event'))
 }
+
+exports.getEventByDate = (req, res) => {
+  const { eventDate } = req.query
+  Event.findOne({ date: eventDate })
+    .then(event => {
+      console.log(event)
+      res.send(event)
+    })
+     .catch(err => res.status(500).send('Could not find the date'))
+}
