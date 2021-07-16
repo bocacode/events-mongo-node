@@ -20,6 +20,6 @@ mongoose
  app.use(eventsRoutes)
 
  const updateCustomer = require('./src/routes/customerRoutes')
- app.patch(updateCustomer)
+ app.use(updateCustomer)
 
 
