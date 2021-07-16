@@ -10,9 +10,25 @@ exports.createSponsor = (req, res) => {
 }
 
 exports.deleteSingleSponsor = (req, res) => {
-  Sponsor.findOneAndDelete({ company: 'FPL' })
-    .then(deleteSponsor => {
-      res.status(200).send(deleteSponsor)
+  Sponsor.findOneAndDelete({ company: req.params.company })
+    .then(Sponsor => {
+      res.status(200).send('Deleted')
     })
     .catch(err => console.log(err))
 }
+
+exports.getAllSponsors = (req, res) => {
+  Sponsor.find()
+    .then(allSponsors => {
+      res.status(200).send(allSponsors)
+    })
+    .catch(err => console.log(err))
+}
+
+exports.getSponsorByCompanyName = (req, res) => {
+  Sponsor.findOne({ company: req.params.company })
+    .then(sponsor => {
+      res.send(sponsor)
+    })
+    .catch(err => res.status(500).send('Could not find sponsor'))
+  }
