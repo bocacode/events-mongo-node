@@ -6,7 +6,7 @@ const EventSchema = mongoose.Schema({
   date: Date,
   description: String,
   cost: String,
-  attendees: Array
+  attendees: Array,
 })
-
-module.exports = mongoose.model('Event', EventSchema) // create model from Schema
+// create model from Schema
+module.exports = mongoose.model('Event', EventSchema)

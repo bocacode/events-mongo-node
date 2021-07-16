@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 const OrderSchema = mongoose.Schema({
   idNum: Number,
@@ -7,4 +7,4 @@ const OrderSchema = mongoose.Schema({
   total: String,
 })
 
-module.exports = mongoose.model("Order", OrderSchema)
+module.exports = mongoose.model('Order', OrderSchema)
