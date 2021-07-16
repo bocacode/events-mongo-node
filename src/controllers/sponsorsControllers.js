@@ -10,9 +10,9 @@ exports.createSponsor = (req, res) => {
 }
 
 exports.deleteSingleSponsor = (req, res) => {
-  Sponsor.findOneAndDelete({ company: 'FPL' })
-    .then(deleteSponsor => {
-      res.status(200).send(deleteSponsor)
+  Sponsor.findOneAndDelete({ company: req.params.company })
+    .then(Sponsor => {
+      res.status(200).send('Deleted')
     })
     .catch(err => console.log(err))
 }
