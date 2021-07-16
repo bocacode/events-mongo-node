@@ -1,4 +1,4 @@
-const Order = require('../models')
+const Order = require('../models/orderModel')
 
 exports.getOrdersByDate = (req, res) => {
   const {eventDate} = req.params
