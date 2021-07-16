@@ -5,6 +5,7 @@ require('dotenv/config') // importing dotenv libriary to use variable
 
 const app = express() // creating app as Express
 app.use(express.json()) // use express and parse everythig into json
+app.use(cors())
 
 mongoose
   .connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }) // connect to mongoose
