@@ -35,3 +35,10 @@ exports.getOrdersByIdNumber =(req, res) => {
   .then(oneOrder => res.status(200).send(oneOrder))
   .catch(err => res.send(err))
 }
+
+exports.updateOrder = (req, res) => {
+  const {number} = req.params
+  Order.updateOne({orderNumber: number}, req.body)
+  .then(() => res.status(200).send('order updated') )
+  .catch(err => res.send(err))
+}
