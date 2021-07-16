@@ -8,6 +8,7 @@ const EventSchema = mongoose.Schema(
     description: String,
     cost: String,
     attendees: Array,
+    image: String,
   },
   { timestamps: true }
 )
