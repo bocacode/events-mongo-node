@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const ordersController = require('../controllers/ordersController')
-router.get('/orders/:eventDate', ordersController.getOrdersByDate)
-router.get('/orders/:number', ordersController.getOrdersByIdNumber)
+router.get('/orders/date/:eventDate', ordersController.getOrdersByDate)
+router.get('/orders/id/:number', ordersController.getOrdersByIdNumber)
 router.get('/orders', ordersController.getAllOrders )
 
 
