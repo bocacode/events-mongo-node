@@ -6,6 +6,7 @@ router.get('/orders/date/:eventDate', ordersController.getOrdersByDate)
 router.get('/orders/id/:number', ordersController.getOrdersByIdNumber)
 router.get('/orders', ordersController.getAllOrders )
 
+router.patch('/orders/id/:number', ordersController.updateOrder)
 
 // todo get one order by idNum
 router.post('/addOrder', ordersController.createOrder)
