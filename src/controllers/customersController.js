@@ -32,3 +32,4 @@ exports.updateCustomer = (req, res) => {
     })
     .catch(err => console.log(err))
 }
+

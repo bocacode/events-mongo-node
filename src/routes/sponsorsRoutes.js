@@ -8,5 +8,7 @@ const sponsorsController = require('../controllers/sponsorsControllers')
 
 router.delete('/deleteSponsor', sponsorsController.deleteSingleSponsor)
 router.post('/addSponsor', sponsorsController.createSponsor)
+router.get('/getSponsors', sponsorsController.getAllSponsors)
+router.get('/sponsorByCompany', sponsorsController.getSponsorByCompany)
 
 module.exports = router
