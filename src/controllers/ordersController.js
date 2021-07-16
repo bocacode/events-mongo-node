@@ -28,3 +28,10 @@ exports.deleteOrder = (req,res) => {
   .then( () => res.status(410).send('Order deleted.'))
   .catch(err => res.status(500).send('Could not delete order'))
 }
+
+exports.getOrdersByIdNumber =(req, res) => {
+  const {number} = req.params
+  Order.findOne({orderNumber: number})
+  .then(oneOrder => res.status(200).send(oneOrder))
+  .catch(err => res.send(err))
+}
