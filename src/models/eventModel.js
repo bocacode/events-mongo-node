@@ -1,4 +1,4 @@
-const mongoose = require("mongoose") // import mongoose
+const mongoose = require('mongoose') // import mongoose
 
 //create schema = rules to control type of data
 const EventSchema = mongoose.Schema({
@@ -9,4 +9,4 @@ const EventSchema = mongoose.Schema({
   attendees: Array,
 })
 // create model from Schema
-module.exports = mongoose.model("Event", EventSchema)
+module.exports = mongoose.model('Event', EventSchema)
